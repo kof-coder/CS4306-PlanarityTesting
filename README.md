@@ -6,9 +6,9 @@ We will also be comparing its efficiency with a brute-force algorithm.
 
 ## Team
 - Kofi (Leader)
-- J (Research)
-- R (Theory)
-- P (Documentation & Testing)
+- John (Research)
+- Rishi (Theory)
+- Peyton (Documentation & Testing)
 
 ## Folder Structure
 src/ - source code
