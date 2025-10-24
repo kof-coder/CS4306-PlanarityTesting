@@ -93,11 +93,11 @@ E ← INIT_EMBEDDING(B) # data structure for circular orders around vertices
 
 ## Baseline (Naïve) – Validation Only
 
-This baseline invokes a library planarity checker (e.g., NetworkX `check_planarity`) strictly as a yardstick.
-We rely on it to confirm that our Hopcroft–Tarjan implementation agrees on PLANAR/NON-PLANAR outcomes for canonical graphs such as K5 and K3,3.
-It remains outside the project’s main focus; we make no claims about its performance beyond the library call itself.
-The baseline records only the boolean verdict—no embeddings or runtime data—so comparisons stay simple.
-Keeping this lightweight validator available helps us spot regressions quickly while preserving attention on the primary algorithm.
+This baseline invokes a library planarity checker (e.g., NetworkX check_planarity) strictly as a yardstick.
+We use it to verify that our Hopcroft–Tarjan algorithm produces the same PLANAR or NON-PLANAR classification for canonical graphs such as K5 and K3,3.
+It remains outside the main scope of the project, and we make no claims regarding its performance beyond the library call itself.
+Because the baseline only tracks the boolean result and no runtime information, comparisons remain straightforward.
+Keeping this lightweight validator available helps identify regressions easily while allowing us to focus on the primary algorithm.
 
 PROCEDURE NAIVE_PLANARITY(G):
 return LIBRARY_CHECK_PLANARITY(G) # e.g., NetworkX check_planarity(...)
