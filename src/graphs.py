@@ -1,4 +1,4 @@
-# src/graph.py
+# src/graphs.py
 
 from collections import defaultdict
 

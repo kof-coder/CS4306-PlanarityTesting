@@ -1,6 +1,6 @@
 # main.py
 
-from src.graph import Graph
+from src.graphs import Graph
 from src.planarity_ht import HopcroftTarjanPlanarity
 
 # If J has created src/baseline_check.py with naive_planarity(), we can import it.
