@@ -52,6 +52,6 @@ if __name__ == "__main__":
     run_on_file("data/samples/k3_3.edgelist")
 
     # Add planar samples when you have them:
-    # run_on_file("data/samples/grid_3x3.edgelist")
-    # run_on_file("data/samples/cycle_6.edgelist")
+    run_on_file("data/samples/grid_3x3.edgelist")
+    run_on_file("data/samples/cycle_6.edgelist")
 
