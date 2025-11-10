@@ -1,12 +1,16 @@
 # Planarity Testing Results
 
-| Graph        | HT Result | Baseline | HT (ms) | Baseline (ms) |
-|---------------|------------|-----------|----------|----------------|
-| K5            |            |           |          |                |
-| K3,3          |            |           |          |                |
-| Grid 3×3      |            |           |          |                |
-| Cycle 6       |            |           |          |                |
-| Tree 10       |            |           |          |                |
-| Wheel 6       |            |           |          |                |
+| Graph        | HT Result  | Baseline | HT (ms) | Baseline (ms) |
+|--------------|------------|----------|---------|---------------|
+| K5           | Non-planar | Non-planar | 2.69  | 1.90          |
+| K3,3         | Non-planar | Non-planar | 2.11  | 1.66          |
+| Grid 3×3     | Planar     | Planar     | 0.16  | 0.12          |
+| Cycle 6      | Planar     | Planar     | 0.09  | 0.07          |
+| Tree 10      | Planar     | Planar     | 0.49  | 0.10          |
+| Wheel 6      | Planar     | Planar     | 0.14  | 0.11          |
 
-_All tests run using Hopcroft–Tarjan Planarity Implementation (HT) and NetworkX Baseline._
+_Notes:_  
+- HT timings include DFS + block extraction + per-block planarity check.  
+- Baseline is a single call to a library routine.  
+- Small ms differences are normal and machine-dependent.
+
