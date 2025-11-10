@@ -3,6 +3,7 @@
 from src.graphs import Graph
 from src.planarity_ht import HopcroftTarjanPlanarity
 from src.brute_force.naive_planarity import naive_is_planar
+from src.utils.timing import bench
 
 
 def load_edgelist_file(path):
@@ -34,15 +35,18 @@ def run_on_file(path):
     print(f"=== Testing graph from {path} ===")
     n, edges = load_edgelist_file(path)
 
-    # Build our Graph and run HT
+    # Build our Graph and HT instance
     G = Graph.from_edge_list(n, edges)
     ht = HopcroftTarjanPlanarity(G)
-    ht_result = ht.is_planar()
-    print("HT says:      ", "PLANAR" if ht_result else "NON-PLANAR")
 
-    # Baseline comparator (NetworkX)
-    base_res = naive_is_planar(n, edges)
-    print("Baseline says:", "PLANAR" if base_res else "NON-PLANAR")
+    # Time HT
+    ht_result, ht_ms = bench(ht.is_planar)()
+
+    # Time baseline
+    base_result, base_ms = bench(naive_is_planar)(n, edges)
+
+    print(f"HT says:        {'PLANAR' if ht_result else 'NON-PLANAR'}  ({ht_ms:.2f} ms)")
+    print(f"Baseline says:  {'PLANAR' if base_result else 'NON-PLANAR'}  ({base_ms:.2f} ms)")
     print()
 
 
@@ -51,7 +55,10 @@ if __name__ == "__main__":
     run_on_file("data/samples/k5.edgelist")
     run_on_file("data/samples/k3_3.edgelist")
 
-    # Add planar samples when you have them:
+    # Planar samples
     run_on_file("data/samples/grid_3x3.edgelist")
     run_on_file("data/samples/cycle_6.edgelist")
 
+    # Extra samples (add these files below)
+    run_on_file("data/samples/tree_10.edgelist")
+    run_on_file("data/samples/wheel_6.edgelist")
