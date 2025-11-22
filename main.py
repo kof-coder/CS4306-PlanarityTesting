@@ -24,7 +24,8 @@ def load_edgelist_file(path):
             if not line or line.startswith("#"):
                 continue
             u_str, v_str = line.split()
-            u = int(u_str); v = int(v_str)
+            u = int(u_str)
+            v = int(v_str)
             edges.append((u, v))
             nodes_seen.update([u, v])
     n = max(nodes_seen) + 1 if nodes_seen else 0
@@ -39,14 +40,18 @@ def run_on_file(path):
     G = Graph.from_edge_list(n, edges)
     ht = HopcroftTarjanPlanarity(G)
 
-    # Time HT
+    # Time Hopcroft–Tarjan
     ht_result, ht_ms = bench(ht.is_planar)()
-
-    # Time baseline
-    base_result, base_ms = bench(naive_is_planar)(n, edges)
-
     print(f"HT says:        {'PLANAR' if ht_result else 'NON-PLANAR'}  ({ht_ms:.2f} ms)")
-    print(f"Baseline says:  {'PLANAR' if base_result else 'NON-PLANAR'}  ({base_ms:.2f} ms)")
+
+    # Time factorial-time baseline (only safe for small n)
+    try:
+        base_result, base_ms = bench(naive_is_planar)(n, edges)
+        print(f"Baseline says:  {'PLANAR' if base_result else 'NON-PLANAR'}  ({base_ms:.2f} ms)")
+    except ValueError as e:
+        # Raised when n > max_n inside naive_is_planar
+        print(f"Baseline skipped: {e}")
+
     print()
 
 
@@ -59,6 +64,6 @@ if __name__ == "__main__":
     run_on_file("data/samples/grid_3x3.edgelist")
     run_on_file("data/samples/cycle_6.edgelist")
 
-    # Extra samples (add these files below)
+    # Extra samples; baseline will be skipped if n is too large
     run_on_file("data/samples/tree_10.edgelist")
     run_on_file("data/samples/wheel_6.edgelist")
