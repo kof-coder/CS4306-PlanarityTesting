@@ -1,13 +1,12 @@
 # Planarity Testing Results
 
-| Graph        | HT Result  | Baseline | HT (ms) | Baseline (ms) |
-|--------------|------------|----------|---------|---------------|
-| K5           | Non-planar | Non-planar | 2.69  | 1.90          |
-| K3,3         | Non-planar | Non-planar | 2.11  | 1.66          |
-| Grid 3×3     | Planar     | Planar     | 0.16  | 0.12          |
-| Cycle 6      | Planar     | Planar     | 0.09  | 0.07          |
-| Tree 10      | Planar     | Planar     | 0.49  | 0.10          |
-| Wheel 6      | Planar     | Planar     | 0.14  | 0.11          |
+| Graph    | HT Result  | Baseline   | HT (ms) | Baseline (ms) |
+|--------- |----------- |----------- |-------- |-------------- |
+| K5       | Non-planar | Non-planar | 2.69    | 1.90          |
+| K3,3     | Non-planar | Non-planar | 2.11    | 1.66          |
+| Grid 3×3 | Planar     | Planar     | 0.16    | 0.12          |
+| Cycle 6  | Planar     | Planar     | 0.09    | 0.07          |
+
 
 _Notes:_  
 - HT timings include DFS + block extraction + per-block planarity check.  
