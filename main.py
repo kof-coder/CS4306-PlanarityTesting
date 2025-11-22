@@ -7,15 +7,6 @@ from src.utils.timing import bench
 
 
 def load_edgelist_file(path):
-    """
-    Reads an edgelist file like:
-        0 1
-        0 2
-        1 2
-    Returns:
-        n      = max node index + 1
-        edges  = list of (u,v)
-    """
     edges = []
     nodes_seen = set()
     with open(path, "r") as f:
@@ -36,32 +27,35 @@ def run_on_file(path):
     print(f"=== Testing graph from {path} ===")
     n, edges = load_edgelist_file(path)
 
-    # Build our Graph and HT instance
+    # Build Graph and HT instance
     G = Graph.from_edge_list(n, edges)
     ht = HopcroftTarjanPlanarity(G)
 
-    # Time Hopcroft–Tarjan
+    # Run HT
     ht_result, ht_ms = bench(ht.is_planar)()
     print(f"HT says:        {'PLANAR' if ht_result else 'NON-PLANAR'}  ({ht_ms:.2f} ms)")
 
-    # Time factorial-time baseline (only safe for small n)
-    try:
+    # Run factorial baseline only if small enough
+    if n <= 8:
         base_result, base_ms = bench(naive_is_planar)(n, edges)
         print(f"Baseline says:  {'PLANAR' if base_result else 'NON-PLANAR'}  ({base_ms:.2f} ms)")
-    except ValueError as e:
-        # Raised when n > max_n inside naive_is_planar
-        print(f"Baseline skipped: {e}")
+    else:
+        print("Baseline skipped: n too large for factorial brute force")
 
     print()
 
 
 if __name__ == "__main__":
-    # Core non-planar samples
+    # Small non-planar
     run_on_file("data/samples/k5.edgelist")
     run_on_file("data/samples/k3_3.edgelist")
 
-    # Planar samples
+    # Small planar
     run_on_file("data/samples/grid_3x3.edgelist")
     run_on_file("data/samples/cycle_6.edgelist")
 
-    
+    # Medium / large planar graphs (HT only)
+    run_on_file("data/samples/tree_10.edgelist")
+    run_on_file("data/samples/wheel_6.edgelist")
+    run_on_file("data/samples/path_12.edgelist")
+    run_on_file("data/samples/grid_4x4.edgelist")
