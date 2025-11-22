@@ -16,6 +16,10 @@ fitted from the small-graph measurements.
 | Path 12      | 12  | 6.25              | 177,975,705.60           |
 | Grid 4×4     | 16  | 10.88             | 7,773,978,820,608.00     |
 
+Visual:
+
+
+<img width="763" height="445" alt="image" src="https://github.com/user-attachments/assets/bb0babfc-858f-4df3-89f6-fd4dd1c79116" />
 
 
 ---------------------------------------------------------------------------------
