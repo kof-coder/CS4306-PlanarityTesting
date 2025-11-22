@@ -16,10 +16,7 @@ fitted from the small-graph measurements.
 | Path 12      | 12  | 6.25              | 177,975,705.60           |
 | Grid 4×4     | 16  | 10.88             | 7,773,978,820,608.00     |
 
-Visual:
 
-
-<img width="763" height="445" alt="image" src="https://github.com/user-attachments/assets/bb0babfc-858f-4df3-89f6-fd4dd1c79116" />
 
 
 ---------------------------------------------------------------------------------
@@ -51,7 +48,8 @@ Visual:
 - HT consistently ran in **~0.5 ms to ~17 ms**, even on larger graphs.  
 - Baseline runtime grew from ~20 ms (n=5) to **300+ ms** for n=6 graphs.  
 - This confirms the theoretical gap between **linear time** and **factorial time**.  
-- Baseline was skipped for graphs with **n > 8** due to factorial blow-up.  
+- Baseline was skipped for graphs with **n > 8** due to factorial blow-up.
+- Also, the CPU plays a part into why there a discrepency between the actual and the projected. If the CPU is faster, the baseline will run faster.
 
 _All tests performed using our custom HT implementation and our factorial brute-force baseline._
 
