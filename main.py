@@ -64,6 +64,4 @@ if __name__ == "__main__":
     run_on_file("data/samples/grid_3x3.edgelist")
     run_on_file("data/samples/cycle_6.edgelist")
 
-    # Extra samples; baseline will be skipped if n is too large
-    run_on_file("data/samples/tree_10.edgelist")
-    run_on_file("data/samples/wheel_6.edgelist")
+    
