@@ -8,8 +8,8 @@
 | Cycle 6  | Planar     | Planar     | 0.09    | 0.07          |
 
 
-_Notes:_  
-- HT timings include DFS + block extraction + per-block planarity check.  
-- Baseline is a single call to a library routine.  
-- Small ms differences are normal and machine-dependent.
+_Notes:_
+HT timings include DFS + block extraction + per-block planarity check.
+Baseline is a **factorial-time brute-force** method that tries all permutations of vertex labels, so we only use it on very small graphs.
+Small ms differences are normal and machine-dependent.
 
