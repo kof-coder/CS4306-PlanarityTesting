@@ -20,34 +20,34 @@ fitted from the small-graph measurements.
 
 ---------------------------------------------------------------------------------
 
-# Planarity Testing Results
+# Planarity Testing Experimental Results
 
-## Time Complexity Summary
+## Time Complexity Recap
 - **Hopcroft–Tarjan (HT):** Θ(n + m)  
-- **Baseline (brute-force):** Θ(n! · (n + m)) — only safe for n ≤ 8  
-- Large graphs skip the baseline due to factorial explosion.
+- **Brute-force Baseline:** Θ(n! · (n + m)) — only feasible for very small n  
 
 ---
 
-## Experimental Measurements
+## Measured Performance (Slower PC)
 
-| Graph        | n   | HT Result  | Baseline | HT (ms) | Baseline (ms) |
-|------------- |---- |----------- |----------|---------|---------------|
-| K5           | 5   | Non-planar | Non-planar | X.XX | X.XX |
-| K3,3         | 6   | Non-planar | Non-planar | X.XX | X.XX |
-| Grid 3×3     | 9   | Planar     | Planar     | X.XX | X.XX |
-| Cycle 6      | 6   | Planar     | Planar     | X.XX | X.XX |
-| Tree 10      | 10  | Planar     | Skipped    | X.XX | — |
-| Wheel 6      | 6   | Planar     | Planar     | X.XX | X.XX |
-| Path 12      | 12  | Planar     | Skipped    | X.XX | — |
-| Grid 4×4     | 16  | Planar     | Skipped    | X.XX | — |
+| Graph        | n   | HT Result   | Baseline Result | HT (ms) | Baseline (ms) |
+|--------------|-----|-------------|-----------------|---------|----------------|
+| K5           | 5   | Non-planar  | Non-planar      | 17.03   | 27.58         |
+| K3,3         | 6   | Non-planar  | Non-planar      | 11.91   | 226.47        |
+| Grid 3×3     | 9   | Planar      | Skipped (n > 8) | 0.61    | —             |
+| Cycle 6      | 6   | Planar      | Planar          | 0.49    | 376.07        |
+| Tree 10      | 10  | Planar      | Skipped (n > 8) | 1.00    | —             |
+| Wheel 6      | 6   | Planar      | Planar          | 0.56    | 302.06        |
+| Path 12      | 12  | Planar      | Skipped (n > 8) | 1.10    | —             |
+| Grid 4×4     | 16  | Planar      | Skipped (n > 8) | 1.63    | —             |
 
 ---
 
-### Notes
-- HT timing includes DFS + low-link updates + block extraction.  
-- Baseline timing includes trying all permutations (factorial time).  
-- For graphs with n > 8, baseline is **intentionally skipped**.  
-- Small timing differences (<1ms) are due to Python overhead and OS noise.  
+## Notes
+- HT consistently ran in **~0.5 ms to ~17 ms**, even on larger graphs.  
+- Baseline runtime grew from ~20 ms (n=5) to **300+ ms** for n=6 graphs.  
+- This confirms the theoretical gap between **linear time** and **factorial time**.  
+- Baseline was skipped for graphs with **n > 8** due to factorial blow-up.  
 
-_All tests run using our Hopcroft–Tarjan implementation and our factorial brute-force baseline._
+_All tests performed using our custom HT implementation and our factorial brute-force baseline._
+
