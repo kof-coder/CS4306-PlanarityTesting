@@ -1,3 +1,25 @@
+## Projected Runtime (Theoretical Model)
+
+Using:
+- HT projected as  **T_HT ≈ c · (n + m)**  (linear time),
+- Baseline projected as  **T_BF ≈ k · n!**  (factorial time),
+fitted from the small-graph measurements.
+
+| Graph        | n   | HT (projected ms) | Baseline (projected ms) |
+|------------- |---- |-------------------|--------------------------|
+| K5           | 5   | 4.08              | 44.59                    |
+| K3,3         | 6   | 4.08              | 267.52                   |
+| Grid 3×3     | 9   | 5.71              | 134,830.08               |
+| Cycle 6      | 6   | 3.26              | 267.52                   |
+| Tree 10      | 10  | 5.17              | 1,348,300.80             |
+| Wheel 6      | 6   | 4.35              | 267.52                   |
+| Path 12      | 12  | 6.25              | 177,975,705.60           |
+| Grid 4×4     | 16  | 10.88             | 7,773,978,820,608.00     |
+
+
+
+---------------------------------------------------------------------------------
+
 # Planarity Testing Results
 
 ## Time Complexity Summary
