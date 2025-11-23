@@ -53,3 +53,14 @@ fitted from the small-graph measurements.
 
 _All tests performed using our custom HT implementation and our factorial brute-force baseline._
 
+<img width="287" height="294" alt="image" src="https://github.com/user-attachments/assets/4de6940c-b2f2-43a9-8d08-73fc22f5256a" />
+<img width="247" height="269" alt="image" src="https://github.com/user-attachments/assets/b9b1559a-43aa-492e-b533-8725d0286a6e" />
+<img width="293" height="271" alt="image" src="https://github.com/user-attachments/assets/c9204232-7a2b-4d42-a13a-448e2d144997" />
+<img width="377" height="348" alt="image" src="https://github.com/user-attachments/assets/1ed9dc98-7add-4776-92ae-c9250dd02e19" />
+<img width="399" height="258" alt="image" src="https://github.com/user-attachments/assets/409b4235-ae8e-48fb-831d-fc09a56c9eae" />
+<img width="324" height="312" alt="image" src="https://github.com/user-attachments/assets/306991d2-3426-442b-8fee-fb60963b3628" />
+<img width="546" height="31" alt="image" src="https://github.com/user-attachments/assets/aa124612-393b-4757-bbe0-86a6cf16da8d" />
+<img width="786" height="749" alt="image" src="https://github.com/user-attachments/assets/7a0436ab-1b59-4d2f-86fc-c6275e3a3a5b" />
+
+
+
